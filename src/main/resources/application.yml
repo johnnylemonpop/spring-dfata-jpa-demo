@@ -1,0 +1,19 @@
+# this is a yml (or yaml) file which allows us to configure any additional configuration in our spring boot app
+#server:
+#  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://training-db.cjk8aacizjxv.us-east-1.rds.amazonaws.com:5432/postgres
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+# supported values for ddl-auto property (correspond hibernate's hbm2ddl property)
+# create - drop any current entities with the same name, and then create those entities
+# update - will update schema based on java objects to align with java app
+# validate - will not change schema, will throw an exception if there is any mismatch
+# create-drop - create necessary entities, and then drop them when the application terminates
